@@ -16,19 +16,34 @@ nav {
   justify-content: space-between;
   padding: 1.5rem 3rem;
   background: #020617;
+  flex-wrap: wrap;        /* allows items to wrap on small screens */
 }
 
 nav ul {
   display: flex;
   gap: 1.5rem;
   list-style: none;
+  flex-wrap: wrap;        /* wrap links if needed */
+  justify-content: flex-end; 
+  width: 100%;            /* make links container full width */
+  margin-top: 0.5rem;     /* spacing on wrap */
 }
 
-nav a {
-  color: #e5e7eb;
-  text-decoration: none;
-}
+/* Mobile-specific adjustments */
+@media (max-width: 600px) {
+  nav {
+    padding: 1rem;        /* less padding on small screens */
+  }
 
+  nav ul {
+    justify-content: center; /* center links on small screens */
+    margin-top: 0.5rem;
+  }
+
+  nav a {
+    font-size: 0.9rem;    /* slightly smaller text */
+  }
+}
 .hero {
   padding: 6rem 3rem;
   text-align: center;
