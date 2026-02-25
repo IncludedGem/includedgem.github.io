@@ -161,18 +161,22 @@ footer {
   background: rgba(0,0,0,0.8);
 }
 
+.carousel img {
+  position: relative;
+  z-index: 1;
+}
+
 .carousel-caption {
   position: absolute;
   bottom: 0;
   width: 100%;
   padding: 0.5rem 0.75rem;
+
   font-size: 0.9rem;
   color: #e5e7eb;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
-}
 
-.carousel img {
-  user-select: none;
-  -webkit-user-drag: none;
+  z-index: 3;         
+  pointer-events: none;   
 }
