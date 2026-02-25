@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Miles Huang | Engineering Portfolio</title>
+  <title>Miles Huang's Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -20,7 +20,7 @@
 
   <!-- Hero -->
   <section class="hero">
-    <h2>Electrical Engineering Student</h2>
+    <h2>Electrical Engineering Portfolio</h2>
     <p>I want to make cool things.</p>
     <a href="#projects" class="btn">View My Work</a>
   </section>
@@ -48,10 +48,22 @@
       </p>
       <p class="tech">Tech: C++, Python, KiCAD</p>
 
-      <div class="carousel" data-project="TWS Device Photos" data-count="3">
-      <button class="carousel-btn left">‹</button>
-      <img src="Project Photos/TWS Device Photos/1.jpg" alt="Project image">
-      <button class="carousel-btn right">›</button>
+      <div class="carousel"
+          data-project="TWS Device Photos"
+          data-count="3"
+          data-captions='[
+            "Physical Prototype V1",
+            "KiCad Schematic of the Device",
+            "KiCad PCB Layout of the Microcontroller Board"
+          ]'>
+
+        <button class="carousel-btn left">‹</button>
+
+        <img src="Project Photos/TWS Device Photos/1.jpg" alt="Project image">
+
+        <button class="carousel-btn right">›</button>
+
+        <div class="carousel-caption"></div>
       </div>
 
       <a href="https://soangra.com/">Gait Rehabilitation & Research Lab →</a>
@@ -69,12 +81,34 @@
       <p class="collab">Collaborators: Siddharth Raj</p>
       <p class="collab">Recognition: IVC Research Symposium - Outstanding Poster Presentation</p>
       <!-- <a href="https://github.com/yourusername/project" target="_blank">GitHub →</a> -->
-      <div class="carousel" data-project="Smart Insole Research Photos" data-count="10">
-      <button class="carousel-btn left">‹</button>
-      <img src="Project Photos/Smart Insole Research Photos/1.jpg" alt="Project image">
-      <button class="carousel-btn right">›</button>
+      
+      
+      <div class="carousel"
+          data-project="Smart Insole Research Photos"
+          data-count="11"
+          data-captions='[
+            "Main PCB with Microcontroller Mounted",
+            "Full Component Integration with IOLab",
+            "KiCad Schematic",
+            "KiCad PCB Layout",
+            "FFT Analysis of Gyroscope, Accelerometer, and Piezoelectric Sensor Data",
+            "Benchmarking Comparison with IOLab",
+            "IVC Research Symposium - Outstanding Poster Presentation Award",
+            "Outstanding Poster Presentation Award with Sidd",
+            "Presentation Setup at the IVC Research Symposium",
+            "Presentation Setup at SCCUR",
+            "Full Research Poster"
+          ]'>
+
+        <button class="carousel-btn left">‹</button>
+
+        <img src="Project Photos/Smart Insole Research Photos/1.jpg" alt="Project image">
+
+        <button class="carousel-btn right">›</button>
+
+        <div class="carousel-caption"></div>
       </div>
-    
+
     </div>
 
 

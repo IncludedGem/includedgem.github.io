@@ -125,26 +125,54 @@ footer {
 
 .carousel-btn {
   position: absolute;
-  line-height: 1;
   top: 50%;
   transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background: rgba(0,0,0,0.6);
   color: white;
   border: none;
+  border-radius: 50%;
+
   font-size: 1.5rem;
-  padding: 0.25rem 0.75rem;
+  line-height: 1;
   cursor: pointer;
   z-index: 2;
-}
 
+  opacity: 0.85;
+}
+.carousel-btn:hover {
+  opacity: 1;
+}
 .carousel-btn.left {
-  left: 8px;
+  left: 10px;
 }
 
 .carousel-btn.right {
-  right: 8px;
+  right: 10px;
 }
 
 .carousel-btn:hover {
   background: rgba(0,0,0,0.8);
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.carousel img {
+  user-select: none;
+  -webkit-user-drag: none;
 }
