@@ -41,8 +41,15 @@ nav ul {
   }
 
   nav a {
-    font-size: 0.9rem;    /* slightly smaller text */
-  }
+  color: #ffffff;         /* white text */
+  text-decoration: none;  /* remove underline */
+  font-weight: 500;       /* optional: make text slightly bolder */
+  transition: color 0.2s; /* subtle hover effect */
+}
+
+nav a:hover {
+  color: #3b82f6;         /* optional: blue on hover for feedback */
+}
 }
 .hero {
   padding: 6rem 3rem;
