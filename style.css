@@ -11,45 +11,50 @@ body {
   line-height: 1.6;
 }
 
+nav a {
+  color: #ffffff;         /* white text on all screens */
+  text-decoration: none;  /* remove underline */
+  font-weight: 500;       /* optional: slightly bolder */
+  transition: color 0.2s; /* smooth hover effect */
+}
+
+nav a:hover {
+  color: #3b82f6;         /* optional: blue on hover */
+}
+
+/* Responsive navbar */
 nav {
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 3rem;
   background: #020617;
-  flex-wrap: wrap;        /* allows items to wrap on small screens */
+  flex-wrap: wrap;
 }
 
 nav ul {
   display: flex;
   gap: 1.5rem;
   list-style: none;
-  flex-wrap: wrap;        /* wrap links if needed */
-  justify-content: flex-end; 
-  width: 100%;            /* make links container full width */
-  margin-top: 0.5rem;     /* spacing on wrap */
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 0.5rem;
 }
 
 /* Mobile-specific adjustments */
 @media (max-width: 600px) {
   nav {
-    padding: 1rem;        /* less padding on small screens */
+    padding: 1rem;        /* less padding */
   }
 
   nav ul {
-    justify-content: center; /* center links on small screens */
+    justify-content: center; /* center links on mobile */
     margin-top: 0.5rem;
   }
 
   nav a {
-  color: #ffffff;         /* white text */
-  text-decoration: none;  /* remove underline */
-  font-weight: 500;       /* optional: make text slightly bolder */
-  transition: color 0.2s; /* subtle hover effect */
-}
-
-nav a:hover {
-  color: #3b82f6;         /* optional: blue on hover for feedback */
-}
+    font-size: 0.9rem;    /* smaller on mobile */
+  }
 }
 .hero {
   padding: 6rem 3rem;
