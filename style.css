@@ -163,30 +163,7 @@ footer {
 
 
 
-.carousel img {
-  width: 100%;
-  height: auto;       
-  object-fit: contain;
-  display: block;    
-  position: relative;
-  z-index: 1;
-}
 
-.carousel-caption {
-  position: static;     
-  width: 100%;               
-  margin-top: 0.5rem;       
-  padding: 0.25rem 0.5rem;  
-  font-size: 0.9rem;
-  color: #e5e7eb;            
-  background: none;       
-  text-align: center;      
-  z-index: 2;              
-  pointer-events: auto;      
-}
-
-
-/*
 .carousel img {
   position: relative;
   z-index: 1;
@@ -206,4 +183,3 @@ footer {
   z-index: 3;         
   pointer-events: none;   
 }
-  */
