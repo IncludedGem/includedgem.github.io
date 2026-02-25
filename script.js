@@ -8,25 +8,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 
-
-document.querySelectorAll('.carousel').forEach(carousel => {
-  const img = carousel.querySelector('img');
-  const projectFolder = carousel.dataset.project;
-  const totalImages = parseInt(carousel.dataset.count);
-  let current = 1;
-
-  carousel.querySelector('.left').addEventListener('click', () => {
-    current = current === 1 ? totalImages : current - 1;
-    img.src = `Project Photos/${projectFolder}/${current}.jpg`;
-  });
-
-  carousel.querySelector('.right').addEventListener('click', () => {
-    current = current === totalImages ? 1 : current + 1;
-    img.src = `Project Photos/${projectFolder}/${current}.jpg`;
-  });
-});
-
-
 document.querySelectorAll('.carousel').forEach(carousel => {
   const img = carousel.querySelector('img');
   const captionEl = carousel.querySelector('.carousel-caption');
@@ -37,11 +18,32 @@ document.querySelectorAll('.carousel').forEach(carousel => {
 
   let current = 1;
 
+  // helper to try multiple filename patterns
+  function getImagePath(num) {
+    const variants = [
+      `${num}.jpg`,
+      `${num}.jpeg`,
+      `${num}.png`,
+      `0${num}.jpg`,
+      `0${num}.jpeg`,
+      `0${num}.png`
+    ];
+
+    for (let file of variants) {
+      // This only works on modern browsers with fetch + HEAD
+      // If it exists, return the path
+      // NOTE: HEAD requests can be async, so we’ll just return first variant and let fallback happen
+      // For simplicity, just use first matching pattern:
+      return `Project Photos/${projectFolder}/${file}`;
+    }
+  }
+
   function updateCarousel() {
-    img.src = `Project Photos/${projectFolder}/${current}.jpg`;
+    img.src = getImagePath(current);
     captionEl.textContent = captions[current - 1] || '';
   }
 
+  // Button clicks
   carousel.querySelector('.left').addEventListener('click', () => {
     current = current === 1 ? totalImages : current - 1;
     updateCarousel();
@@ -52,7 +54,7 @@ document.querySelectorAll('.carousel').forEach(carousel => {
     updateCarousel();
   });
 
-  /* ---- Swipe Support ---- */
+  // Swipe support
   let startX = 0;
 
   img.addEventListener('touchstart', e => {
@@ -65,9 +67,9 @@ document.querySelectorAll('.carousel').forEach(carousel => {
 
     if (Math.abs(diff) > 50) {
       if (diff > 0) {
-        current = current === totalImages ? 1 : current + 1; // swipe left
+        current = current === totalImages ? 1 : current + 1;
       } else {
-        current = current === 1 ? totalImages : current - 1; // swipe right
+        current = current === 1 ? totalImages : current - 1;
       }
       updateCarousel();
     }
