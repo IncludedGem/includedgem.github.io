@@ -10,52 +10,67 @@ body {
   color: #e5e7eb;
   line-height: 1.6;
 }
-
-nav a {
-  color: #ffffff;         /* white text on all screens */
-  text-decoration: none;  /* remove underline */
-  font-weight: 500;       /* optional: slightly bolder */
-  transition: color 0.2s; /* smooth hover effect */
-}
-
-nav a:hover {
-  color: #3b82f6;         /* optional: blue on hover */
-}
-
-/* Responsive navbar */
+/* Navbar base styling */
 nav {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;                 /* allow wrapping on small screens */
+  justify-content: space-between;  /* logo left, links right */
+  align-items: center;
   padding: 1.5rem 3rem;
   background: #020617;
-  flex-wrap: wrap;
+  width: 100%;                     /* full width */
+  box-sizing: border-box;
 }
 
+/* Logo */
+nav h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+/* Link list */
 nav ul {
   display: flex;
   gap: 1.5rem;
   list-style: none;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  width: 100%;
-  margin-top: 0.5rem;
+  margin: 0;
+  padding: 0;
 }
 
-/* Mobile-specific adjustments */
+/* Nav links */
+nav a {
+  color: #ffffff;                  /* white text */
+  text-decoration: none;           /* remove underline */
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #3b82f6;                  /* optional hover color */
+}
+
+/* Mobile adjustments */
 @media (max-width: 600px) {
   nav {
-    padding: 1rem;        /* less padding */
+    flex-direction: column;        /* stack logo + links */
+    align-items: center;
+    padding: 1rem;
   }
 
   nav ul {
-    justify-content: center; /* center links on mobile */
-    margin-top: 0.5rem;
+    flex-direction: column;        /* stack links vertically */
+    gap: 0.5rem;
+    width: 100%;
+    text-align: center;
   }
 
   nav a {
-    font-size: 0.9rem;    /* smaller on mobile */
+    font-size: 0.9rem;             /* slightly smaller links on mobile */
   }
 }
+
+
 .hero {
   padding: 6rem 3rem;
   text-align: center;
