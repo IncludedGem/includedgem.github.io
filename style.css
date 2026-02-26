@@ -19,28 +19,29 @@ body {
 /* Navbar base styling */
 nav {
   display: flex;
-  flex-wrap: wrap;                 /* allow wrapping on small screens */
   justify-content: space-between;  /* logo left, links right */
   align-items: center;
   padding: 1.5rem 3rem;
   background: #020617;
-  width: 100%;                     /* full width */
+  width: 100%;
   box-sizing: border-box;
 }
+
 /* Logo container */
 .logo {
   display: flex;
-  align-items: center;   /* vertically centers logo and text */
-  gap: 0.5rem;           /* space between image and name */
+  align-items: center;
+  gap: 0.5rem;                   /* spacing between image and text */
 }
 
-/* Make image match text height */
+/* Logo image */
 .logo img {
-  height: 1em;           /* matches h1 font-size */
+  height: 1.2rem;                 /* slightly smaller than h1 for better visual balance */
   width: auto;
 }
-/* Logo */
-nav h1 {
+
+/* Logo text */
+.logo h1 {
   margin: 0;
   font-size: 1.5rem;
   color: #ffffff;
@@ -57,33 +58,33 @@ nav ul {
 
 /* Nav links */
 nav a {
-  color: #ffffff;                  /* white text */
-  text-decoration: none;           /* remove underline */
+  color: #ffffff;
+  text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
 }
 
 nav a:hover {
-  color: #3b82f6;                  /* optional hover color */
+  color: #3b82f6;                 /* hover color */
 }
 
 /* Mobile adjustments */
 @media (max-width: 600px) {
   nav {
-    flex-direction: column;        /* stack logo + links */
+    flex-direction: column;
     align-items: center;
     padding: 1rem;
   }
 
   nav ul {
-    flex-direction: column;        /* stack links vertically */
+    flex-direction: column;
     gap: 0.5rem;
     width: 100%;
     text-align: center;
   }
 
   nav a {
-    font-size: 0.9rem;             /* slightly smaller links on mobile */
+    font-size: 0.9rem;
   }
 }
 
