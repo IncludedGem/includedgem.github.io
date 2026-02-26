@@ -5,6 +5,12 @@
   font-family: system-ui, sans-serif;
 }
 
+.inline-icon {
+  height: 1em;       /* Match the text height */
+  width: auto;       /* Keep aspect ratio */
+  vertical-align: middle; /* Align with text */
+}
+
 body {
   background: #0f172a;
   color: #e5e7eb;
