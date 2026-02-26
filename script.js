@@ -1,4 +1,4 @@
-// Smooth scroll (nice touch)
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -7,7 +7,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Auto-detect GitHub Pages repo base path
+// GitHub Pages base path
 const BASE_PATH = window.location.pathname.split('/')[1]
   ? `/${window.location.pathname.split('/')[1]}/`
   : '/';
@@ -23,30 +23,11 @@ document.querySelectorAll('.carousel').forEach(carousel => {
   let current = 1;
 
   function updateCarousel() {
-  const names = [
-    `${current}.jpg`,
-    `${current}.jpeg`,
-    `${current}.png`,
-    `0${current}.jpg`,
-    `0${current}.jpeg`,
-    `0${current}.png`
-  ];
+    img.src = `${BASE_PATH}Project Photos/${projectFolder}/p${current}.jpg`;
+    captionEl.textContent = captions[current - 1] || '';
+  }
 
-  let i = 0;
-
-  img.onerror = () => {
-    i++;
-    if (i < names.length) {
-      img.src = `${BASE_PATH}Project Photos/${projectFolder}/${names[i]}`;
-    } else {
-      img.src = `${BASE_PATH}Project Photos/placeholder.png`;
-    }
-  };
-
-  img.src = `${BASE_PATH}Project Photos/${projectFolder}/${names[i]}`;
-  captionEl.textContent = captions[current - 1] || '';
-}
-  // Button clicks
+  // Buttons
   carousel.querySelector('.left').addEventListener('click', () => {
     current = current === 1 ? totalImages : current - 1;
     updateCarousel();
@@ -57,7 +38,7 @@ document.querySelectorAll('.carousel').forEach(carousel => {
     updateCarousel();
   });
 
-  // Swipe support
+  // Swipe
   let startX = 0;
 
   img.addEventListener('touchstart', e => {
@@ -69,15 +50,12 @@ document.querySelectorAll('.carousel').forEach(carousel => {
     const diff = startX - endX;
 
     if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        current = current === totalImages ? 1 : current + 1;
-      } else {
-        current = current === 1 ? totalImages : current - 1;
-      }
+      current = diff > 0
+        ? (current === totalImages ? 1 : current + 1)
+        : (current === 1 ? totalImages : current - 1);
       updateCarousel();
     }
   });
 
-  // initialize
   updateCarousel();
 });
