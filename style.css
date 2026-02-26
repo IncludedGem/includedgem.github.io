@@ -36,7 +36,7 @@ nav {
 
 /* Logo image */
 .logo img {
-  height: 1.2rem;                 /* slightly smaller than h1 for better visual balance */
+  height: 3.6rem;                 /* slightly bigger than h1 for better visual balance */
   width: auto;
 }
 
