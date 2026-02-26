@@ -23,17 +23,29 @@ document.querySelectorAll('.carousel').forEach(carousel => {
   let current = 1;
 
   function updateCarousel() {
-    // prevent infinite error loop
-    img.onerror = null;
+  const names = [
+    `${current}.jpg`,
+    `${current}.jpeg`,
+    `${current}.png`,
+    `0${current}.jpg`,
+    `0${current}.jpeg`,
+    `0${current}.png`
+  ];
 
-    img.onerror = () => {
+  let i = 0;
+
+  img.onerror = () => {
+    i++;
+    if (i < names.length) {
+      img.src = `${BASE_PATH}Project Photos/${projectFolder}/${names[i]}`;
+    } else {
       img.src = `${BASE_PATH}Project Photos/placeholder.png`;
-    };
+    }
+  };
 
-    img.src = `${BASE_PATH}Project Photos/${projectFolder}/${current}.jpg`;
-    captionEl.textContent = captions[current - 1] || '';
-  }
-
+  img.src = `${BASE_PATH}Project Photos/${projectFolder}/${names[i]}`;
+  captionEl.textContent = captions[current - 1] || '';
+}
   // Button clicks
   carousel.querySelector('.left').addEventListener('click', () => {
     current = current === 1 ? totalImages : current - 1;
