@@ -6,7 +6,7 @@
 }
 
 .inline-icon {
-  height: 1em;       /* Match the text height */
+  height: 3em;       /* Match the text height */
   width: auto;       /* Keep aspect ratio */
   vertical-align: middle; /* Align with text */
 }
@@ -27,7 +27,18 @@ nav {
   width: 100%;                     /* full width */
   box-sizing: border-box;
 }
+/* Logo container */
+.logo {
+  display: flex;
+  align-items: center;   /* vertically centers logo and text */
+  gap: 0.5rem;           /* space between image and name */
+}
 
+/* Make image match text height */
+.logo img {
+  height: 1em;           /* matches h1 font-size */
+  width: auto;
+}
 /* Logo */
 nav h1 {
   margin: 0;
