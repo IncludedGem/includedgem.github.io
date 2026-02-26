@@ -7,6 +7,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// Auto-detect GitHub Pages repo base path
+const BASE_PATH = window.location.pathname.split('/')[1]
+  ? `/${window.location.pathname.split('/')[1]}/`
+  : '/';
 
 document.querySelectorAll('.carousel').forEach(carousel => {
   const img = carousel.querySelector('img');
@@ -18,28 +22,15 @@ document.querySelectorAll('.carousel').forEach(carousel => {
 
   let current = 1;
 
-  // helper to try multiple filename patterns
-  function getImagePath(num) {
-    const variants = [
-      `${num}.jpg`,
-      `${num}.jpeg`,
-      `${num}.png`,
-      `0${num}.jpg`,
-      `0${num}.jpeg`,
-      `0${num}.png`
-    ];
-
-    for (let file of variants) {
-      // This only works on modern browsers with fetch + HEAD
-      // If it exists, return the path
-      // NOTE: HEAD requests can be async, so we’ll just return first variant and let fallback happen
-      // For simplicity, just use first matching pattern:
-      return `Project Photos/${projectFolder}/${file}`;
-    }
-  }
-
   function updateCarousel() {
-    img.src = getImagePath(current);
+    // prevent infinite error loop
+    img.onerror = null;
+
+    img.onerror = () => {
+      img.src = `${BASE_PATH}Project Photos/placeholder.png`;
+    };
+
+    img.src = `${BASE_PATH}Project Photos/${projectFolder}/${current}.jpg`;
     captionEl.textContent = captions[current - 1] || '';
   }
 
