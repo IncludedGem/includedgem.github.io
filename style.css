@@ -130,6 +130,17 @@ section {
   height: auto;
   border-radius: 10px; /* optional rounded corners */
 }
+@media (max-width: 600px) {
+  .objective-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-pic {
+    width: 120px;
+  }
+}
+
 
 .project-card {
   background: #020617;
